@@ -16,34 +16,47 @@ export default function UserGallery() {
 
   useEffect(() => {
     fetch("/api/media")
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(setMedia)
   }, [])
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {media.map(item => (
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {media.map((item) => (
           <div
             key={item.id}
             onClick={() => setSelected(item)}
-            className="cursor-pointer rounded-lg border p-2 hover:shadow"
+            className="
+              group cursor-pointer
+              rounded-2xl bg-white
+              shadow-sm hover:shadow-lg
+              transition overflow-hidden
+            "
           >
-            <img
-              src={item.url}
-              alt={item.title || ""}
-              className="h-40 w-full object-cover rounded"
-            />
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <img
+                src={item.url}
+                alt={item.title || "Uploaded media"}
+                className="
+                  h-full w-full object-cover
+                  transition-transform duration-500
+                  group-hover:scale-105
+                "
+              />
+            </div>
 
-            {item.title && (
-              <p className="mt-2 text-sm font-medium">{item.title}</p>
-            )}
-
-            {item.description && (
-              <p className="text-xs text-gray-500 line-clamp-2">
-                {item.description}
+            <div className="p-4 space-y-1">
+              <p className="text-sm font-semibold text-gray-900 truncate">
+                {item.title || "Untitled"}
               </p>
-            )}
+
+              {item.description && (
+                <p className="text-xs text-gray-500 line-clamp-2">
+                  {item.description}
+                </p>
+              )}
+            </div>
           </div>
         ))}
       </div>

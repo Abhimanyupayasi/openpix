@@ -1,42 +1,61 @@
 import { currentUser } from "@clerk/nextjs/server"
 import { redirect } from "next/navigation"
 import Link from "next/link"
+import { AppHeader } from "@/components/AppHeader"
 
 export default async function HomePage() {
   const user = await currentUser()
 
-  // ✅ If logged in → dashboard
+  // ✅ Logged in → dashboard
   if (user) {
     redirect("/dashboard")
   }
 
-  // ❌ Not logged in → landing page
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center gap-6">
-      <h1 className="text-4xl font-bold">OpenPix</h1>
-      <p className="text-gray-600 max-w-md text-center">
-        Open-source image & video CDN. Upload once. Use everywhere.
-      </p>
+    <>
+      
+          <main className="min-h-screen bg-[#FFFDF9] flex items-center justify-center px-6">
+       
+      <div className="max-w-2xl text-center space-y-8">
+        {/* Logo / Brand */}
+        <h1 className="text-5xl font-bold tracking-tight text-gray-900">
+          OpenPix
+        </h1>
 
-      <div className="flex gap-4">
-        <Link
-          href="/sign-up"
-          className="px-6 py-3 bg-black text-white rounded-lg"
-        >
-          Get Started
-        </Link>
+        {/* Tagline */}
+        <p className="text-lg text-gray-600 leading-relaxed">
+          Open-source image & video CDN.  
+          Upload once. Deliver everywhere. Fast, secure, and developer-friendly.
+        </p>
 
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="/sign-up"
+            className="px-8 py-4 rounded-xl bg-black text-white font-medium
+                       hover:bg-gray-800 transition"
+          >
+            Get Started Free
+          </Link>
+
+          <Link
+            href="/sign-in"
+            className="px-8 py-4 rounded-xl border border-gray-300
+                       text-gray-800 font-medium hover:bg-gray-100 transition"
+          >
+            Login
+          </Link>
+        </div>
+
+        {/* Secondary link */}
         <Link
-          href="/sign-in"
-          className="px-6 py-3 border rounded-lg"
+          href="/post"
+          className="inline-block text-sm text-gray-500 underline underline-offset-4 hover:text-gray-700 transition"
         >
-          Login
+          Explore public feed →
         </Link>
       </div>
-
-      <Link href="/post" className="text-sm text-gray-500 underline">
-        Explore public feed
-      </Link>
     </main>
+    </>
   )
 }
