@@ -28,7 +28,7 @@ export default function UserGallery() {
         <p className="text-gray-500">You haven't uploaded any media yet.</p>
       )}
     </div>
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 grid-cols-1 text-black sm:grid-cols-2 lg:grid-cols-3">
         {media.map((item) => (
           <div
             key={item.id}
@@ -36,11 +36,12 @@ export default function UserGallery() {
             className="
               group cursor-pointer
               rounded-2xl bg-white
+              text-shadow-gray-900
               shadow-sm hover:shadow-lg
               transition overflow-hidden
             "
           >
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative text-gray-900 aspect-[4/3] overflow-hidden">
               <img
                 src={item.url}
                 alt={item.title || "Uploaded media"}

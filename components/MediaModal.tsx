@@ -56,7 +56,7 @@ export default function MediaModal({ media, onClose }: Props) {
           <input
             readOnly
             value={media.url}
-            className="flex-1 rounded border px-2 py-1 text-sm"
+            className="flex-1 text-black rounded border px-2 py-1 text-sm"
           />
           <button
             onClick={copyLink}

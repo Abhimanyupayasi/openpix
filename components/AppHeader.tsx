@@ -29,7 +29,7 @@ export function AppHeader() {
           {/* Logged in */}
           <SignedIn>
             <Link
-              href="/dashboard"
+              href="/post"
               className="
                 text-sm font-medium px-4 py-2 rounded-lg
                 bg-black text-white
@@ -37,7 +37,7 @@ export function AppHeader() {
                 transition
               "
             >
-              Upload
+              ALL Posts
             </Link>
 
             <UserButton

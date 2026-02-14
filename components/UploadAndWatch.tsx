@@ -148,7 +148,7 @@ export default function UploadAndWatch() {
   }
 
   return (
-    <div className="max-w-xl  w-full space-y-4">
+    <div className="max-w-xl flex justify-center items-center  w-full space-y-4">
       {/* Notification */}
       {notice && (
         <Notification
