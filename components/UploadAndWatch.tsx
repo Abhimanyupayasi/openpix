@@ -148,7 +148,7 @@ export default function UploadAndWatch() {
   }
 
   return (
-    <div className="max-w-xl w-full space-y-4">
+    <div className="max-w-xl  w-full space-y-4">
       {/* Notification */}
       {notice && (
         <Notification
@@ -160,7 +160,7 @@ export default function UploadAndWatch() {
       )}
 
       {/* Upload Card */}
-      <div className="rounded-2xl border bg-[#FFFDF9] p-6 space-y-5 shadow-[0_10px_40px_rgba(31,82,218,0.12)]">
+      <div className="rounded-2xl border bg-[#FFFDF9] text-black p-6 space-y-5 shadow-[0_10px_40px_rgba(31,82,218,0.12)]">
         <div>
           <h2 className="text-xl font-semibold">Upload Media</h2>
           <p className="text-sm text-gray-500">

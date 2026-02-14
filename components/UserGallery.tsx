@@ -22,6 +22,12 @@ export default function UserGallery() {
 
   return (
     <>
+    <div className="">
+      <h2 className="text-xl font-semibold mb-4">Your Gallery</h2>
+      {media.length === 0 && (
+        <p className="text-gray-500">You haven't uploaded any media yet.</p>
+      )}
+    </div>
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {media.map((item) => (
           <div

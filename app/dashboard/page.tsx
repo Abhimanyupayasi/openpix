@@ -8,7 +8,7 @@ export default async function Dashboard() {
   if (!user) redirect("/sign-in")
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 bg-gray-700 space-y-6">
       <h1 className="text-2xl font-bold">Dashboard</h1>
       <UploadAndWatch />
       <UserGallery/>
